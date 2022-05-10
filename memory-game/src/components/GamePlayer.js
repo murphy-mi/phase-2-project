@@ -16,7 +16,9 @@ function GamePlayer({ imagesArray }) {
     return (
         <div className="GamePlayer">
             <ScoreForm />
-            {gameCard}
+             <div className='cards-wrapper'>
+                {gameCard}
+            </div>
         </div>
     );
 }
