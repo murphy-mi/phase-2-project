@@ -5,7 +5,7 @@ function GamePlayerCard({ image }) {
     return (
         <div>
             <p>{image}</p>
-            <img id={spaceCard} src={image} alt='' />
+            <img className='spaceCard' src={image} alt='' />
         </div>
     )
 }
