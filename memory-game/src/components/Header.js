@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar'
+import '../index.css';
 
 function Header() {
 
@@ -7,7 +8,7 @@ function Header() {
 
     return (
         <div className="Header">
-            <h1>THIS IS THE TITLE</h1>
+            <h1 class="title">THIS IS THE TITLE</h1>
             <NavBar />
         </div>
     );
