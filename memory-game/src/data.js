@@ -1,5 +1,5 @@
 export const imgArr = [
-    'memory-game/public/images/matt-nelson-bx4WS8mhz3w-unsplash.jpg',
+    './images/matt-nelson-bx4WS8mhz3w-unsplash.jpg',
     './images/nasa--5V6VZxSQRo-unsplash.jpg',
     './images/nasa-2W-QWAC0mzI-unsplash.jpg',
     './images/nasa-71W3CWeZF7A-unsplash.jpg',
