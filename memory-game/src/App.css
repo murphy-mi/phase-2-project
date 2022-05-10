@@ -1,0 +1,10 @@
+.GamePlayer {
+  width: 500px;
+  color: rgb(223, 217, 217);
+}
+
+.grid-item {
+  width: 45px;
+  height: 45px;
+  background-color: tomato;
+}
