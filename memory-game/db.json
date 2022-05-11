@@ -1,0 +1,16 @@
+{
+  "highscores": [
+    {
+      "id": 1,
+      "name": "Max",
+      "time": "10",
+      "guesses": 4
+    },
+    {
+      "name": "Kaitlyn",
+      "time": 34,
+      "guesses": 32,
+      "id": 2
+    }
+  ]
+}
