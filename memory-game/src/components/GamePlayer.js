@@ -4,8 +4,8 @@ import ScoreForm from './ScoreForm';
 import GamePlayerCard from './GamePlayerCard'
 
 
-function GamePlayer({ imagesArray, handleFlip, points, isCardChosen }) {
-    console.log(imagesArray)
+function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain }) {
+    // console.log(imagesArray)
 
     const gameCard = imagesArray.map((image, index) => {
         return (
@@ -18,7 +18,10 @@ function GamePlayer({ imagesArray, handleFlip, points, isCardChosen }) {
             <ScoreForm />
             <div className='cards-wrapper'>
                 {gameCard}
-                <h1 style={{ color: 'cyan' }} > Score:{points}</h1>
+                <span>
+                    <h1 style={{ color: 'cyan' }} > Score:{points}</h1>
+                    <button onClick={playAgain}>Play Again</button>
+                </span>
             </div>
         </div >
     );

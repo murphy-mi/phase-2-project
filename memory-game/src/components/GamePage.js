@@ -12,6 +12,7 @@ function GamePage() {
     const [cardsChosenIdx, setCardsChosenIdx] = useState([])
     const [points, setPoints] = useState(0)
     const [openCards, setOpenCards] = useState([])
+    const [playCount, setPlayCount] = useState(0)
     // const [isFlipped, setIsFlipped] = useState(false)
 
 
@@ -59,9 +60,21 @@ function GamePage() {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-        console.log(array)
+        // console.log(array)
         return array
     }
+
+    function playAgain() {
+        setCardsChosenIdx([])
+        setCardsChosen([])
+        setPoints(0)
+        setOpenCards([])
+        setPlayCount(playCount => playCount + 1)
+    }
+
+    useEffect(() => {
+        createCardBoard()
+    }, [playCount])
 
     useEffect(() => {
         createCardBoard()
@@ -72,7 +85,15 @@ function GamePage() {
             <Routes>
                 <Route
                     path="/"
-                    element={<GamePlayer imagesArray={imagesArray} handleFlip={handleFlip} points={points} isCardChosen={isCardChosen} />}
+                    element={
+                        <GamePlayer
+                            playAgain={playAgain}
+                            imagesArray={imagesArray}
+                            handleFlip={handleFlip}
+                            points={points}
+                            isCardChosen={isCardChosen}
+                        />
+                    }
                 />
                 <Route
                     path="/highscores"
