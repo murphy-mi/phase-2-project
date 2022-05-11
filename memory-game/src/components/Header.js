@@ -8,7 +8,7 @@ function Header() {
 
     return (
         <div className="Header">
-            <h1 class="title">THIS IS THE TITLE</h1>
+            <h1 className="title">THIS IS THE TITLE</h1>
             <NavBar />
         </div>
     );
