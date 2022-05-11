@@ -7,24 +7,34 @@ import GamePlayer from './GamePlayer';
 
 function GamePage() {
 
+    // STATE
     const [imagesArray, setImagesArray] = useState([])
     const [cardsChosen, setCardsChosen] = useState([])
     const [cardsChosenIdx, setCardsChosenIdx] = useState([])
     const [points, setPoints] = useState(0)
     const [openCards, setOpenCards] = useState([])
     const [playCount, setPlayCount] = useState(0)
-    // const [isFlipped, setIsFlipped] = useState(false)
+    const [playTimer, setPlayTimer] = useState(0)
+    const [guessCount, setGuessCount] = useState(0)
+    // console.log(playTimer)
 
-
+    // INITIALIZE ON RENDER
     function createCardBoard() {
         const imagesGenerated = imgArr.concat(...imgArr) // double our images
         const shuffledArray = shuffleArray(imagesGenerated)
         setImagesArray(shuffledArray)
     }
 
-
+    // ON IMAGE CLICK
     function handleFlip(image, index) {
-        // console.log(image, index)
+
+        setGuessCount(guessCount => guessCount + 1)
+
+        // while (points < 16) {
+
+        // if (guessCount === 1) {
+        //     setInterval(handlePlayTime, 1000)
+        // }
 
         if (cardsChosenIdx.length === 1 && cardsChosenIdx[0] === index) {
             return
@@ -33,8 +43,6 @@ function GamePage() {
         if (cardsChosen.length < 2) {
             setCardsChosen(cardsChosen => cardsChosen.concat(image))
             setCardsChosenIdx(cardsChosenIdx => cardsChosenIdx.concat(index))
-            // console.log(cardsChosen)
-            // console.log(cardsChosenIdx)
 
             if (cardsChosen.length === 1) {
                 if (cardsChosen[0] === image) {
@@ -47,20 +55,24 @@ function GamePage() {
                 }, 700)
             }
         }
+        // }
     }
 
     function isCardChosen(image, index) {
         return cardsChosenIdx.includes(index) || openCards.includes(image)
     }
 
+    function handlePlayTime() {
+        setPlayTimer(playTimer => playTimer + 1)
+    }
 
+    // setInterval(handlePlayTime, 1000)
 
     function shuffleArray(array) {
         for (let i = 0; i < array.length; i++) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-        // console.log(array)
         return array
     }
 
@@ -69,6 +81,7 @@ function GamePage() {
         setCardsChosen([])
         setPoints(0)
         setOpenCards([])
+        setPlayTimer(0)
         setPlayCount(playCount => playCount + 1)
     }
 
