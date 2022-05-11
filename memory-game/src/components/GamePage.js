@@ -16,8 +16,28 @@ function GamePage() {
     const [playCount, setPlayCount] = useState(0)
     const [playTimer, setPlayTimer] = useState(0)
     const [guessCount, setGuessCount] = useState(0)
-    // console.log(playTimer)
+    const [intervalId, setIntervalId] = useState("")
 
+    useEffect(() => {
+        createCardBoard()
+    }, [playCount])
+
+    useEffect(() => {
+        createCardBoard()
+        
+    }, [])
+
+    useEffect(() => {
+        console.log(playTimer)
+        console.log(intervalId)
+        if(points < 16 && guessCount === 1) {
+             setIntervalId(setInterval(() => setPlayTimer(playTimer => playTimer + 1), 1000))
+        } else if(points === 16) {
+            console.log(intervalId)
+            clearInterval(intervalId)
+        }
+    }, [guessCount])
+    
     // INITIALIZE ON RENDER
     function createCardBoard() {
         const imagesGenerated = imgArr.concat(...imgArr) // double our images
@@ -25,17 +45,11 @@ function GamePage() {
         setImagesArray(shuffledArray)
     }
 
-    // ON IMAGE CLICK
+     // ON IMAGE CLICK
     function handleFlip(image, index) {
 
         setGuessCount(guessCount => guessCount + 1)
-
-        // while (points < 16) {
-
-        // if (guessCount === 1) {
-        //     setInterval(handlePlayTime, 1000)
-        // }
-
+        
         if (cardsChosenIdx.length === 1 && cardsChosenIdx[0] === index) {
             return
         }
@@ -46,7 +60,7 @@ function GamePage() {
 
             if (cardsChosen.length === 1) {
                 if (cardsChosen[0] === image) {
-                    setPoints(pointes => points + 2)
+                    setPoints(points => points + 2)
                     setOpenCards(openCards => openCards.concat([cardsChosen[0], image]))
                 }
                 setTimeout(() => {
@@ -55,18 +69,11 @@ function GamePage() {
                 }, 700)
             }
         }
-        // }
     }
 
     function isCardChosen(image, index) {
         return cardsChosenIdx.includes(index) || openCards.includes(image)
     }
-
-    function handlePlayTime() {
-        setPlayTimer(playTimer => playTimer + 1)
-    }
-
-    // setInterval(handlePlayTime, 1000)
 
     function shuffleArray(array) {
         for (let i = 0; i < array.length; i++) {
@@ -85,13 +92,6 @@ function GamePage() {
         setPlayCount(playCount => playCount + 1)
     }
 
-    useEffect(() => {
-        createCardBoard()
-    }, [playCount])
-
-    useEffect(() => {
-        createCardBoard()
-    }, [])
 
     return (
         <div className="GamePage">
@@ -105,6 +105,7 @@ function GamePage() {
                             handleFlip={handleFlip}
                             points={points}
                             isCardChosen={isCardChosen}
+                            playTimer={playTimer}
                         />
                     }
                 />
