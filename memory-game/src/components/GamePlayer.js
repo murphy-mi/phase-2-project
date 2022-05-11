@@ -4,7 +4,7 @@ import ScoreForm from './ScoreForm';
 import GamePlayerCard from './GamePlayerCard'
 
 
-function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, playTimer }) {
+function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, playTimer, handleForm, guessCount }) {
     // console.log(imagesArray)
 
     const gameCard = imagesArray.map((image, index) => {
@@ -13,14 +13,15 @@ function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, 
         )
     })
 
+
     return (
         <div className="GamePlayer">
-            <ScoreForm />
             <div className='cards-wrapper'>
                 {gameCard}
                 <span>
                     <h1 style={{ color: 'cyan' }} > Time:{playTimer}</h1>
                     <h1 style={{ color: 'cyan' }} > Score:{points}</h1>
+                 <ScoreForm handleForm={handleForm} playTimer={playTimer} guessCount={guessCount} />
                     <button onClick={playAgain}>Play Again</button>
                 </span>
             </div>

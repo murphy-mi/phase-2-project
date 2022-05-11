@@ -17,6 +17,13 @@ function GamePage() {
     const [playTimer, setPlayTimer] = useState(0)
     const [guessCount, setGuessCount] = useState(0)
     const [intervalId, setIntervalId] = useState("")
+    const [scores, setScores] = useState([])
+    console.log(guessCount)
+    useEffect(() => {
+        fetch('http://localhost:3000/highscores')
+            .then(r => r.json())
+            .then(data => setScores(data))
+    }, [] )
 
     useEffect(() => {
         createCardBoard()
@@ -28,12 +35,12 @@ function GamePage() {
     }, [])
 
     useEffect(() => {
-        console.log(playTimer)
-        console.log(intervalId)
+        // console.log(playTimer)
+        // console.log(intervalId)
         if(points < 16 && guessCount === 1) {
              setIntervalId(setInterval(() => setPlayTimer(playTimer => playTimer + 1), 1000))
         } else if(points === 16) {
-            console.log(intervalId)
+            // console.log(intervalId)
             clearInterval(intervalId)
         }
     }, [guessCount])
@@ -92,6 +99,10 @@ function GamePage() {
         setPlayCount(playCount => playCount + 1)
     }
 
+    const handleForm = (data) => {
+        setScores([...scores, data])
+    }
+
 
     return (
         <div className="GamePage">
@@ -106,12 +117,14 @@ function GamePage() {
                             points={points}
                             isCardChosen={isCardChosen}
                             playTimer={playTimer}
+                            handleForm={handleForm}
+                            guessCount={guessCount}
+                            />
+                        }
                         />
-                    }
-                />
                 <Route
                     path="/highscores"
-                    element={<HighScores />}
+                    element={<HighScores scores={scores} playTimer={playTimer} guessCount={guessCount} />}
                 />
                 <Route
                     path="/settings"
