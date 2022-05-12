@@ -5,30 +5,6 @@
       "name": "Max",
       "time": "10",
       "guesses": 4
-    },
-    {
-      "name": "Kaitlyn",
-      "time": 34,
-      "guesses": 32,
-      "id": 2
-    },
-    {
-      "name": "Kaitlyn",
-      "time": 66,
-      "guesses": 56,
-      "id": 3
-    },
-    {
-      "name": "Larry",
-      "time": 38,
-      "guesses": 33,
-      "id": 4
-    },
-    {
-      "name": "k",
-      "time": 42,
-      "guesses": 40,
-      "id": 5
     }
   ]
 }

@@ -10,6 +10,7 @@ body {
   background: radial-gradient(circle at bottom, rgb(22, 22, 82) 0, black 100%);
   height: 100vh;
   overflow: hidden;
+  animation: gradient 15s ease infinite;
 }
 
 
@@ -149,6 +150,29 @@ body {
   transition: 1s;
 }
 
+.HighScores {
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.high-scores-container {
+  display: flex;
+  justify-content: center;
+  border-spacing: 50px;
+  margin-top: 10%;
+}
+
+th {
+  font-size: 25px;
+}
+
+th,
+td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
 
 @keyframes title {
   from {
@@ -167,5 +191,19 @@ body {
 
   to {
     text-shadow: 0 0 5px #fff, 0 0 7px #94B61E, 0 0 10px #94B61E, 0 0 12px #94B61E;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }

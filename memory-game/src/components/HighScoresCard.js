@@ -8,7 +8,7 @@ function HighScoresCard({ score }) {
             <td>{score.name}</td>
             <td>{score.time}</td>
             <td>{score.guesses}</td>
-        </tr>
+        </tr >
     );
 }
 
