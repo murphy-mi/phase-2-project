@@ -1,4 +1,4 @@
-export const imgArr = [
+export const imgArr1 = [
     './images/matt-nelson-bx4WS8mhz3w-unsplash.jpg',
     './images/nasa--5V6VZxSQRo-unsplash.jpg',
     './images/nasa-rTZW4f02zY8-unsplash.jpg',
@@ -9,4 +9,13 @@ export const imgArr = [
     './images/photo-1615195627275-48660e9cd84f.avif'
 ]
 
-
+export const imgArr2 = [
+    './imagesTwo/alien photo 2.jpeg',
+    './imagesTwo/alien photo 3.avif',
+    './imagesTwo/alien photo 4.png',
+    './imagesTwo/alien photo 5.jpeg',
+    './imagesTwo/alien photo 6.jpeg',
+    './imagesTwo/alien photo 7.jpeg',
+    './imagesTwo/alien photo 8.jpeg',
+    './imagesTwo/alien photo 9.jpeg'
+]

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { imgArr } from '../data.js'
+import { imgArr1 } from '../data.js'
 import HighScores from './HighScores';
 import Settings from './Settings';
 import GamePlayer from './GamePlayer';
@@ -18,6 +18,7 @@ function GamePage() {
     const [guessCount, setGuessCount] = useState(0)
     const [intervalId, setIntervalId] = useState("")
     const [scores, setScores] = useState([])
+    const [cardSet, setCardSet] = useState(imgArr1)
     console.log(guessCount)
     useEffect(() => {
         fetch('http://localhost:3000/highscores')
@@ -47,7 +48,7 @@ function GamePage() {
 
     // INITIALIZE ON RENDER
     function createCardBoard() {
-        const imagesGenerated = imgArr.concat(...imgArr) // double our images
+        const imagesGenerated = cardSet.concat(...cardSet) // double our images
         const shuffledArray = shuffleArray(imagesGenerated)
         setImagesArray(shuffledArray)
     }

@@ -10,6 +10,7 @@ body {
   background: radial-gradient(circle at bottom, rgb(22, 22, 82) 0, black 100%);
   height: 100vh;
   overflow: hidden;
+  animation: gradient 15s ease infinite;
 }
 
 
@@ -190,5 +191,19 @@ td {
 
   to {
     text-shadow: 0 0 5px #fff, 0 0 7px #94B61E, 0 0 10px #94B61E, 0 0 12px #94B61E;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
