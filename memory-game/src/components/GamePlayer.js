@@ -23,10 +23,21 @@ function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, 
                 <h1 className="counters" id="time"> Time: {playTimer}</h1>
                 <h1 className="counters" id="guesses"> Guesses: {guessCount}</h1>
             </div>
-            <div>
-                <ScoreForm handleForm={handleForm} playTimer={playTimer} guessCount={guessCount} />
-                <button onClick={playAgain}>Play Again</button>
+            <div className="info">
+                <div className="instructions">
+                    <h4>How to Play:</h4>
+                    <p>To begin, click on any two cards.
+                        If they match, GREAT! They will remain flipped over.
+                        If they don't match, try again. Try getting all matches with minimal guesses in as short a time as you can.</p>
+                    <p>After all matching is complete,
+                        fill out your name in the form below to add your score to our leaderboard!</p>
+                    <div className="end-game">
+                        <ScoreForm handleForm={handleForm} playTimer={playTimer} guessCount={guessCount} />
+                        <button className="play-again" onClick={playAgain}>Play Again</button>
+                    </div>
+                </div>
             </div>
+
         </div >
     );
 }
