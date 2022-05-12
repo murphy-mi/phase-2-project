@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,20 +7,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(31, 30, 30);
+  background-color: rgb(0, 0, 0);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 .title {
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 350%;
+  letter-spacing: 1rem;
+  color: #61FCF9;
   text-align: center;
-  font-size: 75px;
-  color: rgb(232, 236, 227);
-  text-shadow: 2px 2px 3px rgb(187, 239, 82)
+  -webkit-animation: title 1s ease-in-out infinite alternate;
+  -moz-animation: title 1s ease-in-out infinite alternate;
+  animation: title 1s ease-in-out infinite alternate;
 }
+
+.rocket {
+  text-shadow: none;
+}
+
 
 .spaceCard {
   width: 100%;
@@ -33,4 +41,63 @@ code {
   grid-row-gap: 5px;
   grid-column-gap: 5px;
   justify-content: center;
+}
+
+.NavBar {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.nav-container {
+  position: absolute;
+  top: 30.2%;
+}
+
+.nav {
+  color: #90F8FB;
+  padding: 40px;
+  font-size: 30px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.nav:hover {
+  -webkit-animation: nav 1s ease-in-out infinite alternate;
+  -moz-animation: nav 1s ease-in-out infinite alternate;
+  animation: nav 1s ease-in-out infinite alternate;
+}
+
+.counters {
+  color: #90F8FB;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 23px;
+}
+
+.counters-container {
+  display: flex;
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: space-between;
+}
+
+@keyframes title {
+  from {
+    text-shadow: 0 0 10px #3CA1BF, 0 0 15px #3CA1BF;
+  }
+
+  to {
+    text-shadow: 0 0 15px #3CA1BF, 0 0 20px #3CA1BF, 0 0 25px #3CA1BF;
+  }
+}
+
+@keyframes nav {
+  from {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #94B61E, 0 0 10px #94B61E;
+  }
+
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 7px #94B61E, 0 0 10px #94B61E, 0 0 12px #94B61E;
+  }
 }

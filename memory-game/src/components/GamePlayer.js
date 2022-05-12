@@ -18,12 +18,14 @@ function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, 
         <div className="GamePlayer">
             <div className='cards-wrapper'>
                 {gameCard}
-                <span>
-                    <h1 style={{ color: 'cyan' }} > Time:{playTimer}</h1>
-                    <h1 style={{ color: 'cyan' }} > Score:{points}</h1>
-                 <ScoreForm handleForm={handleForm} playTimer={playTimer} guessCount={guessCount} />
-                    <button onClick={playAgain}>Play Again</button>
-                </span>
+            </div>
+            <div className="counters-container">
+                <h1 className="counters" id="time"> Time: {playTimer}</h1>
+                <h1 className="counters" id="guesses"> Guesses: {guessCount}</h1>
+            </div>
+            <div>
+                <ScoreForm handleForm={handleForm} playTimer={playTimer} guessCount={guessCount} />
+                <button onClick={playAgain}>Play Again</button>
             </div>
         </div >
     );
