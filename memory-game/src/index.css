@@ -149,6 +149,29 @@ body {
   transition: 1s;
 }
 
+.HighScores {
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.high-scores-container {
+  display: flex;
+  justify-content: center;
+  border-spacing: 50px;
+  margin-top: 10%;
+}
+
+th {
+  font-size: 25px;
+}
+
+th,
+td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
 
 @keyframes title {
   from {
