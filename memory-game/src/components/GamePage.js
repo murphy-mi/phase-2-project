@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { imgArr1 } from '../data.js'
+import { imgArr1, imgArr2 } from '../data.js'
 import HighScores from './HighScores';
 import Settings from './Settings';
 import GamePlayer from './GamePlayer';
@@ -20,6 +20,7 @@ function GamePage() {
     const [scores, setScores] = useState([])
     const [cardSet, setCardSet] = useState(imgArr1)
     console.log(guessCount)
+
     useEffect(() => {
         fetch('http://localhost:3000/highscores')
             .then(r => r.json())
@@ -29,6 +30,10 @@ function GamePage() {
     useEffect(() => {
         createCardBoard()
     }, [playCount])
+
+    useEffect(() => {
+        createCardBoard()
+    }, [cardSet])
 
     useEffect(() => {
         createCardBoard()
@@ -105,6 +110,10 @@ function GamePage() {
         setScores([...scores, data])
     }
 
+    function handleCardToggle() {
+        setCardSet(cardSet === imgArr1 ? imgArr2 : imgArr1)
+    }
+
 
     return (
         <div className="GamePage">
@@ -121,6 +130,7 @@ function GamePage() {
                             playTimer={playTimer}
                             handleForm={handleForm}
                             guessCount={guessCount}
+                            cardSet={cardSet}
                         />
                     }
                 />
@@ -130,7 +140,7 @@ function GamePage() {
                 />
                 <Route
                     path="/settings"
-                    element={<Settings />}
+                    element={<Settings handleCardToggle={handleCardToggle} />}
                 />
             </Routes>
         </div>
