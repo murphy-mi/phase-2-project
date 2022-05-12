@@ -6,11 +6,13 @@ function NavBar() {
 
 
     return (
-        <nav className="NavBar">
-            <NavLink to="/">Play</NavLink>
-            <NavLink to="/highscores">High Scores</NavLink>
-            <NavLink to="/settings">Settings</NavLink>
-        </nav>
+        <div className="nav-container">
+            <nav className="NavBar">
+                <NavLink className="nav" to="/">Play</NavLink>
+                <NavLink className="nav" to="/highscores">High Scores</NavLink>
+                <NavLink className="nav" to="/settings">Settings</NavLink>
+            </nav>
+        </div>
     );
 }
 

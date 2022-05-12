@@ -23,7 +23,7 @@ function GamePage() {
         fetch('http://localhost:3000/highscores')
             .then(r => r.json())
             .then(data => setScores(data))
-    }, [] )
+    }, [])
 
     useEffect(() => {
         createCardBoard()
@@ -31,20 +31,20 @@ function GamePage() {
 
     useEffect(() => {
         createCardBoard()
-        
+
     }, [])
 
     useEffect(() => {
         // console.log(playTimer)
         // console.log(intervalId)
-        if(points < 16 && guessCount === 1) {
-             setIntervalId(setInterval(() => setPlayTimer(playTimer => playTimer + 1), 1000))
-        } else if(points === 16) {
+        if (points < 16 && guessCount === 1) {
+            setIntervalId(setInterval(() => setPlayTimer(playTimer => playTimer + 1), 1000))
+        } else if (points === 16) {
             // console.log(intervalId)
             clearInterval(intervalId)
         }
     }, [guessCount])
-    
+
     // INITIALIZE ON RENDER
     function createCardBoard() {
         const imagesGenerated = imgArr.concat(...imgArr) // double our images
@@ -52,11 +52,11 @@ function GamePage() {
         setImagesArray(shuffledArray)
     }
 
-     // ON IMAGE CLICK
+    // ON IMAGE CLICK
     function handleFlip(image, index) {
 
         setGuessCount(guessCount => guessCount + 1)
-        
+
         if (cardsChosenIdx.length === 1 && cardsChosenIdx[0] === index) {
             return
         }
@@ -97,6 +97,7 @@ function GamePage() {
         setOpenCards([])
         setPlayTimer(0)
         setPlayCount(playCount => playCount + 1)
+        setGuessCount(0)
     }
 
     const handleForm = (data) => {
@@ -119,9 +120,9 @@ function GamePage() {
                             playTimer={playTimer}
                             handleForm={handleForm}
                             guessCount={guessCount}
-                            />
-                        }
                         />
+                    }
+                />
                 <Route
                     path="/highscores"
                     element={<HighScores scores={scores} playTimer={playTimer} guessCount={guessCount} />}

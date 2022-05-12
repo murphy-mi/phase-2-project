@@ -8,9 +8,11 @@ function Header() {
 
     return (
         <div className="Header">
-            <ul className="title">
-                Extraterrestrial Twinning
-            </ul>
+            <span>
+                <ul className="title">
+                    <span className="rocket">🚀</span> Extraterrestrial Twinning <span className="rocket">🚀</span>
+                </ul>
+            </span>
             <NavBar />
         </div>
     );
