@@ -10,7 +10,7 @@ function Header() {
         <div className="Header">
             <span>
                 <ul className="title">
-                    <span className="rocket">🚀</span> Extraterrestrial Twinning <span className="rocket">🚀</span>
+                    <span className="rocket">🚀</span>Extraterrestrial Twinning<span className="rocket">🚀</span>
                 </ul>
             </span>
             <NavBar />

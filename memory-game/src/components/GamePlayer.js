@@ -4,12 +4,28 @@ import ScoreForm from './ScoreForm';
 import GamePlayerCard from './GamePlayerCard'
 
 
-function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, playTimer, handleForm, guessCount, cardSet }) {
-    // console.log(imagesArray)
+function GamePlayer({
+    imagesArray,
+    handleFlip,
+    points,
+    isCardChosen,
+    playAgain,
+    playTimer,
+    handleForm,
+    guessCount,
+    cardSet
+}) {
 
     const gameCard = imagesArray.map((image, index) => {
         return (
-            <GamePlayerCard key={index} image={image} isCardChosen={isCardChosen} index={index} handleFlip={handleFlip} cardSet={cardSet} />
+            <GamePlayerCard
+                key={index}
+                image={image}
+                isCardChosen={isCardChosen}
+                index={index}
+                handleFlip={handleFlip}
+                cardSet={cardSet}
+            />
         )
     })
 
@@ -28,9 +44,12 @@ function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, 
                     <h4>How to Play:</h4>
                     <p>To begin, click on any two cards.
                         If they match, GREAT! They will remain flipped over.
-                        If they don't match, try again. Try getting all matches with minimal guesses in as short a time as you can.</p>
+                        If they don't match, try again. Try getting all matches with minimal
+                        guesses in as short a time as you can.
+                    </p>
                     <p>After all matching is complete,
-                        fill out your name in the form below to add your score to our leaderboard!</p>
+                        fill out your name in the form below to add your score to our leaderboard!
+                    </p>
                     <div className="end-game">
                         <ScoreForm handleForm={handleForm} playTimer={playTimer} guessCount={guessCount} />
                         <button className="play-again" onClick={playAgain}>Play Again</button>
