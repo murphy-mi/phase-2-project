@@ -20,8 +20,10 @@ function ScoreForm({ handleForm, playTimer, guessCount }) {
         })
             .then(r => r.json())
             .then(data => handleForm(data))
-    }
 
+        setName("")
+
+    }
     return (
         <div>
             <form onSubmit={handleSubmit}>

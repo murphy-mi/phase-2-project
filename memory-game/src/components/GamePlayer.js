@@ -4,12 +4,12 @@ import ScoreForm from './ScoreForm';
 import GamePlayerCard from './GamePlayerCard'
 
 
-function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, playTimer, handleForm, guessCount }) {
+function GamePlayer({ imagesArray, handleFlip, points, isCardChosen, playAgain, playTimer, handleForm, guessCount, cardSet }) {
     // console.log(imagesArray)
 
     const gameCard = imagesArray.map((image, index) => {
         return (
-            <GamePlayerCard key={index} image={image} isCardChosen={isCardChosen} index={index} handleFlip={handleFlip} />
+            <GamePlayerCard key={index} image={image} isCardChosen={isCardChosen} index={index} handleFlip={handleFlip} cardSet={cardSet} />
         )
     })
 
