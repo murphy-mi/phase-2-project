@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 function HighScoresCard({ score }) {
-    // console.log(score)
 
     return (
         <tr className="HighScores">

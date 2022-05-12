@@ -21,6 +21,7 @@ function GamePage() {
     const [cardSet, setCardSet] = useState(imgArr1)
     console.log(guessCount)
 
+    // USE EFFECTS
     useEffect(() => {
         fetch('http://localhost:3000/highscores')
             .then(r => r.json())
@@ -41,12 +42,9 @@ function GamePage() {
     }, [])
 
     useEffect(() => {
-        // console.log(playTimer)
-        // console.log(intervalId)
         if (points < 16 && guessCount === 1) {
             setIntervalId(setInterval(() => setPlayTimer(playTimer => playTimer + 1), 1000))
         } else if (points === 16) {
-            // console.log(intervalId)
             clearInterval(intervalId)
         }
     }, [guessCount])
@@ -79,7 +77,7 @@ function GamePage() {
                 setTimeout(() => {
                     setCardsChosenIdx([])
                     setCardsChosen([])
-                }, 700)
+                }, 1500)
             }
         }
     }
@@ -136,7 +134,11 @@ function GamePage() {
                 />
                 <Route
                     path="/highscores"
-                    element={<HighScores scores={scores} playTimer={playTimer} guessCount={guessCount} />}
+                    element={<HighScores
+                        scores={scores}
+                        playTimer={playTimer}
+                        guessCount={guessCount}
+                    />}
                 />
                 <Route
                     path="/settings"
