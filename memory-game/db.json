@@ -7,22 +7,10 @@
       "guesses": 4
     },
     {
-      "name": "Maxamilian",
-      "time": 83,
-      "guesses": 80,
+      "name": "Kaitlyn",
+      "time": 42,
+      "guesses": 40,
       "id": 2
-    },
-    {
-      "name": "It's max again",
-      "time": 47,
-      "guesses": 36,
-      "id": 3
-    },
-    {
-      "name": "Test",
-      "time": 8,
-      "guesses": 4,
-      "id": 4
     }
   ]
 }
