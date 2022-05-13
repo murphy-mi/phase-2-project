@@ -37,10 +37,6 @@ body {
   border-radius: 5%;
 }
 
-.spaceCard:hover {
-  cursor: pointer;
-}
-
 .cards-wrapper {
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
@@ -178,33 +174,6 @@ td {
   padding-right: 40px;
 }
 
-.Settings {
-  display: flex;
-  color: white;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  font-family: 'Orbitron', sans-serif;
-  margin-top: 20%;
-}
-
-.cardSetButton {
-  width: 140px;
-  height: 140px;
-  font-size: 60px;
-  border-radius: 100%;
-  border: none;
-  background-color: #a9fc03;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.cardSetButton:hover {
-  background-color: #699c03;
-  transition: 1s;
-  cursor: pointer
-}
-
 @keyframes title {
   from {
     text-shadow: 0 0 10px #3CA1BF, 0 0 15px #3CA1BF;
@@ -222,5 +191,19 @@ td {
 
   to {
     text-shadow: 0 0 5px #fff, 0 0 7px #94B61E, 0 0 10px #94B61E, 0 0 12px #94B61E;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
