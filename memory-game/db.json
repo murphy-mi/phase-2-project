@@ -23,6 +23,24 @@
       "time": 8,
       "guesses": 4,
       "id": 4
+    },
+    {
+      "name": "Kaitlyn",
+      "time": 59,
+      "guesses": 35,
+      "id": 5
+    },
+    {
+      "name": "joe",
+      "time": 54,
+      "guesses": 44,
+      "id": 6
+    },
+    {
+      "name": "Kaitie",
+      "time": 0,
+      "guesses": 0,
+      "id": 7
     }
   ]
 }
