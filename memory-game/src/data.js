@@ -6,7 +6,7 @@ export const imgArr1 = [
     './images/nasa-JHyiw_dpALk-unsplash.jpg',
     './images/nasa-Yj1M5riCKk4-unsplash.jpg',
     './images/nasa-m35LirqP6y8-unsplash.jpg',
-    './images/photo-1615195627275-48660e9cd84f.avif'
+    './images/alexander-andrews-fsH1KjbdjE8-unsplash.jpg'
 ]
 
 export const imgArr2 = [

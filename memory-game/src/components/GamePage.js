@@ -4,6 +4,8 @@ import { imgArr1, imgArr2 } from '../data.js'
 import HighScores from './HighScores';
 import Settings from './Settings';
 import GamePlayer from './GamePlayer';
+import ClipLoader from "react-spinners/ClipLoader";
+import { Spinner } from 'react-bootstrap';
 
 function GamePage() {
 
@@ -19,9 +21,14 @@ function GamePage() {
     const [intervalId, setIntervalId] = useState("")
     const [scores, setScores] = useState([])
     const [cardSet, setCardSet] = useState(imgArr1)
+    const [isLoading, setIsLoading] = useState(true)
     console.log(guessCount)
 
     // USE EFFECTS
+    useEffect(() => {
+        cacheImages(imgArr1)
+    }, []);
+
     useEffect(() => {
         fetch('http://localhost:3000/highscores')
             .then(r => r.json())
@@ -112,39 +119,62 @@ function GamePage() {
         setCardSet(cardSet === imgArr1 ? imgArr2 : imgArr1)
     }
 
+    const cacheImages = async (srcArrayy) => {
+        const promises = await srcArrayy.map((src) => {
+            return new Promise(function (resolve, reject) {
+                const img = new Image()
+
+                img.src = src
+                img.onload = resolve()
+                img.onerror = reject()
+            })
+        })
+
+        await Promise.all(promises)
+
+        setIsLoading(false)
+    }
+
 
     return (
         <div className="GamePage">
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <GamePlayer
-                            playAgain={playAgain}
-                            imagesArray={imagesArray}
-                            handleFlip={handleFlip}
-                            points={points}
-                            isCardChosen={isCardChosen}
+            {isLoading
+                ?
+                <div className='spinner-div'>
+                    <ClipLoader />
+                </div>
+                :
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <GamePlayer
+                                playAgain={playAgain}
+                                imagesArray={imagesArray}
+                                handleFlip={handleFlip}
+                                points={points}
+                                isCardChosen={isCardChosen}
+                                playTimer={playTimer}
+                                handleForm={handleForm}
+                                guessCount={guessCount}
+                                cardSet={cardSet}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/highscores"
+                        element={<HighScores
+                            scores={scores}
                             playTimer={playTimer}
-                            handleForm={handleForm}
                             guessCount={guessCount}
-                            cardSet={cardSet}
-                        />
-                    }
-                />
-                <Route
-                    path="/highscores"
-                    element={<HighScores
-                        scores={scores}
-                        playTimer={playTimer}
-                        guessCount={guessCount}
-                    />}
-                />
-                <Route
-                    path="/settings"
-                    element={<Settings handleCardToggle={handleCardToggle} />}
-                />
-            </Routes>
+                        />}
+                    />
+                    <Route
+                        path="/settings"
+                        element={<Settings handleCardToggle={handleCardToggle} />}
+                    />
+                </Routes>
+            }
         </div>
     );
 }
