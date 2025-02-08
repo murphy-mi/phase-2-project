@@ -1,3 +1,3 @@
-# phase-2-project
+# Flatiron Phase 2 Project - Memory Matching Game w/ React 
 
 Game is deployed [here](https://ettwinning.netlify.app/).
